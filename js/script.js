@@ -2,6 +2,8 @@
 Данный режим не даёт системе закрывать глаза на ошибки, выдавая соответствующие исключения.
 Это приводит к остановке выполнения программ  */
 
+
+
 /* Создаем обьект, в который будут помещаться ответы пользователя */
 let personalMovieDB = {
 	count: 0,
@@ -64,6 +66,14 @@ let personalMovieDB = {
 		if (personalMovieDB.privat == false) {
 			alert('Спасибо за уделенное время!');
 			console.log(personalMovieDB);
+		}
+	},
+	/* Функция, проверяющая свойство privat и меняющая его на противоположное */
+	toggleVisibleMyDB: function () {
+		if (personalMovieDB.privat) {
+			 personalMovieDB.privat = false;
+		} else {
+			personalMovieDB.privat = true;
 		}
 	},
 	/* В данной функции спрашиваем у пользователя три его любимых жанра */
