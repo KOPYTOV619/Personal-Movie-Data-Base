@@ -71,7 +71,7 @@ let personalMovieDB = {
 	/* Функция, проверяющая свойство privat и меняющая его на противоположное */
 	toggleVisibleMyDB: function () {
 		if (personalMovieDB.privat) {
-			 personalMovieDB.privat = false;
+			personalMovieDB.privat = false;
 		} else {
 			personalMovieDB.privat = true;
 		}
@@ -79,9 +79,20 @@ let personalMovieDB = {
 	/* В данной функции спрашиваем у пользователя три его любимых жанра */
 	writeYourGenres: function () {
 		for (let i = 1; i <= 3; i++) {
-			let favoriteGanre = prompt(`Ваш любимый жанр под номером ${i}`);
-			personalMovieDB.genres[i - 1] = favoriteGanre;
+			let favoriteGenre = prompt(`Ваш любимый жанр под номером ${i}`);
+
+			if (favoriteGenre == '' || favoriteGenre == null) {
+				alert('Указано неверное значение!');
+				console.log('Указано неверное значение!');
+				i--;
+			} else {
+				personalMovieDB.genres[i - 1] = favoriteGenre;
+			}
 		}
+		/* item - каждый элемент в масиве, i - порядковый номер */
+		personalMovieDB.genres.forEach((item, i) => {
+			console.log(`Ваш любимый жанр под номером ${i + 1} - это ${item}`);
+		});
 	}
 
 };
